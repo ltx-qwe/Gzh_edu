@@ -28,9 +28,5 @@ yuan.html"==元统治下的贵州教育
 mc.html==明统治下的贵州教育
 qc.html==清统治下的贵州教育
 
-教育体制发展
-tangs.html==唐宋统治下的贵州教育
-yuan.html"==元统治下的贵州教育
-mc.html==明统治下的贵州教育
-qc.html==清统治下的贵州教育
+
 
