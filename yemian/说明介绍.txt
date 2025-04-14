@@ -15,7 +15,7 @@ qinhan.html==秦汉时期
 stsy.html==隋唐宋元时期
 ming.html==明朝时期
 qing.html">清朝时期
-/jdai.html">贵州近代教育的启动
+jdai.html">贵州近代教育的启动
 mguo.html">民国时期
 zg.html">中国成立以来
 
