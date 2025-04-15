@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州教育史 - 文学教育家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+           
+        }
+        
+        .content-container {
+            width: 100%;
+            height: 900px;
+           
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .page-title h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #2c3e50;
+        }
+        
+        .name-box {
+            width: 1110px;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 30px;
+            align-content: flex-start;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .educator-name {
+            font-size: 18px;
+            color: #2c3e50;
+            padding: 10px 20px;
+            background-color: #e8f4fc;
+            border-radius: 20px;
+            white-space: nowrap;
+            height: fit-content;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .educator-name:hover {
+            background-color: #d0e8f8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 200px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .back-button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .name-box {
+                width: 95%;
+                padding: 25px;
+            }
+            
+            .content-container {
+                height: auto;
+                min-height: 900px;
+                padding: 30px 20px;
+            }
+            
+            .educator-name {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .educator-name {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            
+            .page-title h1 {
+                font-size: 28px;
+            }
+            
+            .name-box {
+                gap: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <div class="page-title">
+            <h1>贵州文学教育家</h1>
+            <p>影响贵州文学教育发展的杰出人物</p>
+        </div>
+        
+        <div class="name-box">
+            <span class="educator-name">谢六逸</span>
+            <span class="educator-name">李端棻</span>
+            <span class="educator-name">周恭寿</span>
+            <span class="educator-name">乐森璕</span>
+            <span class="educator-name">严修</span>
+            <span class="educator-name">张之洞</span>
+            <span class="educator-name">王若飞</span>
+            <span class="educator-name">黄齐生</span>
+            <span class="educator-name">任可澄</span>
+            <span class="educator-name">周素园</span>
+            <span class="educator-name">田君亮</span>
+            <span class="educator-name">刘方岳</span>
+            <span class="educator-name">李淑元</span>
+            <span class="educator-name">肖文灿</span>
+            <span class="educator-name">张云麓</span>
+            <span class="educator-name">马宗荣</span>
+            <span class="educator-name">谢孝思</span>
+            <span class="educator-name">刘薰宇</span>
+            <span class="educator-name">田君亮</span>
+            <span class="educator-name">朱厚锟</span>
+            <span class="educator-name">张毕来</span>
+            <span class="educator-name">蹇先艾</span>
+            <span class="educator-name">刘剑魂</span>
+            <span class="educator-name">杨汉先</span>
+            <span class="educator-name">吴雪俦</span>
+            <span class="educator-name">李独清</span>
+           
+            
+        </div>
+        
+        <a href="index.html" class="back-button">返回首页</a>
+    </div>
+</body>
+</html>
