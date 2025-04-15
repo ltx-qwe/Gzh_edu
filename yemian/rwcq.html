@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州教育史 - 抽象分类</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .gallery-container {
+            width: 100%;
+            height: 900px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-title h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-title p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .grid-container {
+            width: 100%;
+            height: calc(100% - 100px);
+            position: relative;
+        }
+        
+        .vertical-rect {
+            width: 70px;
+            height: 270px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            position: absolute;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        /* 有文字的矩形 */
+        .labeled-rect {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .labeled-rect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+        }
+        
+        .label {
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 5px;
+        }
+        
+        /* 无文字的透明矩形 */
+        .transparent-rect {
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        /* 设置不同的z-index实现前后层次 */
+        .front-layer {
+            z-index: 3;
+        }
+        
+        .middle-layer {
+            z-index: 2;
+        }
+        
+        .back-layer {
+            z-index: 1;
+        }
+        
+        /* 为每个矩形设置不同位置 */
+        .rect-1 {
+            left: 10%;
+            top: 15%;
+            background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-2 {
+            left: 25%;
+            top: 25%;
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-3 {
+            left: 15%;
+            top: 50%;
+        }
+        
+        .rect-4 {
+            left: 35%;
+            top: 15%;
+            background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-5 {
+            left: 50%;
+            top: 30%;
+        }
+        
+        .rect-6 {
+            left: 45%;
+            top: 60%;
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-7 {
+            left: 60%;
+            top: 20%;
+        }
+        
+        .rect-8 {
+            left: 70%;
+            top: 40%;
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-9 {
+            left: 80%;
+            top: 15%;
+        }
+        
+        .rect-10 {
+            left: 65%;
+            top: 65%;
+        }
+        
+        .rect-11 {
+            left: 30%;
+            top: 70%;
+            background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60');
+        }
+        
+        .rect-12 {
+            left: 75%;
+            top: 75%;
+        }
+        
+        /* 悬停效果 */
+        .vertical-rect:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .gallery-container {
+                height: auto;
+                min-height: 900px;
+                padding: 20px;
+            }
+            
+            .vertical-rect {
+                width: 60px;
+                height: 230px;
+            }
+            
+            .label {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-title">
+            <h1>贵州教育史人物分类</h1>
+            <p>影响贵州教育发展的各类杰出人物</p>
+        </div>
+        
+        <div class="grid-container">
+            <!-- 有文字的矩形 (前面层) -->
+            <div class="vertical-rect labeled-rect rect-1 front-layer" onclick="window.location.href='mz.html'">
+                <div class="label">文学教育家</div>
+            </div>
+            
+            <div class="vertical-rect labeled-rect rect-2 front-layer">
+                <div class="label">近代教育家</div>
+            </div>
+            
+            <div class="vertical-rect labeled-rect rect-4 front-layer">
+                <div class="label">教育改革家</div>
+            </div>
+            
+            <!-- 有文字的矩形 (中间层) -->
+            <div class="vertical-rect labeled-rect rect-6 middle-layer">
+                <div class="label">书院创始人</div>
+            </div>
+            
+            <div class="vertical-rect labeled-rect rect-8 middle-layer">
+                <div class="label">抗战教育家</div>
+            </div>
+            
+            <div class="vertical-rect labeled-rect rect-11 middle-layer">
+                <div class="label">维新教育家</div>
+            </div>
+            
+            <!-- 无文字的透明矩形 (各种层次) -->
+            <div class="vertical-rect transparent-rect rect-3 back-layer"></div>
+            <div class="vertical-rect transparent-rect rect-5 front-layer"></div>
+            <div class="vertical-rect transparent-rect rect-7 middle-layer"></div>
+            <div class="vertical-rect transparent-rect rect-9 front-layer"></div>
+            <div class="vertical-rect transparent-rect rect-10 back-layer"></div>
+            <div class="vertical-rect transparent-rect rect-12 middle-layer"></div>
+        </div>
+    </div>
+
+    <script>
+        // 为文学教育家矩形添加点击事件
+        document.querySelector('.rect-1').addEventListener('click', function() {
+            window.location.href = 'literature_educators.html';
+        });
+    </script>
+</body>
+</html>
