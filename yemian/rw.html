@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州教育史 - 近现代著名教师</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #e8f5e9;
+            --secondary-color: #1565c0;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #f0f9eb 0%, #e6f3ff 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(21, 101, 192, 0.9) 100%);
+            margin-bottom: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .period-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0 auto 40px;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .period-nav a {
+            margin: 8px 12px;
+            padding: 10px 20px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(46, 125, 50, 0.2);
+            font-size: 1.05rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .period-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(46, 125, 50, 0.2);
+        }
+        
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            opacity: 0.3;
+        }
+        
+        .period-section {
+            position: relative;
+            margin-bottom: 80px;
+            padding: 30px 0;
+        }
+        
+        .period-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin: 0 auto 40px;
+            text-align: center;
+            max-width: 400px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .person-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .person-card {
+            width: 220px;
+            margin: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .image-box {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .person-card:hover .image-box {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .name-box {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: -20px;
+            position: relative;
+            z-index: 1;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .person-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .person-title {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            font-size: 1.05rem;
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(233, 245, 233, 0.1), rgba(46, 125, 50, 0.9));
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .footer p:first-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .period-nav a {
+                padding: 8px 15px;
+                font-size: 0.95rem;
+                margin: 5px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .period-section {
+                padding-left: 60px;
+            }
+            
+            .person-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .person-card {
+                width: 100%;
+                max-width: 260px;
+                margin: 20px 0;
+            }
+            
+            .image-box {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>贵州教育史 · 近现代著名教师</h1>
+        <p>探索贵州教育发展历程，铭记为贵州教育事业做出卓越贡献的教育先驱</p>
+    </div>
+    
+    <div class="period-nav">
+        <a href="#qingmo">清末民初</a>
+        <a href="#minguo">民国时期</a>
+        <a href="#xinzhongguo">新中国成立初期</a>
+        <a href="#wenge">文化大革命时期</a>
+        <a href="#gaige">改革开放后</a>
+    </div>
+    
+    <div class="timeline-container">
+        <div class="timeline">
+            <!-- 清末民初时期 (1840-1911) -->
+            <div class="period-section" id="qingmo">
+                <div class="period-title">清末民初 (1840-1911)</div>
+                
+                <div class="person-row">
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/lsc.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">黎庶昌</div>
+                            <div class="person-title">教育家、外交家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/zz.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">郑珍</div>
+                            <div class="person-title">经学家、教育家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/myz.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">莫友芝</div>
+                            <div class="person-title">文献学家、教育家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 民国时期 (1912-1949) -->
+            <div class="period-section" id="minguo">
+                <div class="period-title">民国时期 (1912-1949)</div>
+                
+                <div class="person-row">
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/hqs.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">黄齐生</div>
+                            <div class="person-title">著名教育家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/xly.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">谢六逸</div>
+                            <div class="person-title">文学家、教育家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/zsy.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">周素园</div>
+                            <div class="person-title">教育家、革命家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 新中国成立初期 (1949-1966) -->
+            <div class="period-section" id="xinzhongguo">
+                <div class="period-title">新中国成立初期 (1949-1966)</div>
+                
+                <div class="person-row">
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/zbl.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">张毕来</div>
+                            <div class="person-title">教育家、文学家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/sxa.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">蹇先艾</div>
+                            <div class="person-title">教育家、作家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/tjl.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">田君亮</div>
+                            <div class="person-title">教育工作者</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文化大革命时期 (1966-1976) -->
+            <div class="period-section" id="wenge">
+                <div class="period-title">文化大革命时期 (1966-1976)</div>
+                
+                <div class="person-row">
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/lxg.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">李侠公</div>
+                            <div class="person-title">教育工作者</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/qtz.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">秦天真</div>
+                            <div class="person-title">教育工作者</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 改革开放后 (1978至今) -->
+            <div class="period-section" id="gaige">
+                <div class="period-title">改革开放后 (1978至今)</div>
+                
+                <div class="person-row">
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/lgl.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">李桂莲</div>
+                            <div class="person-title">农业教育家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/mkj.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">马克俭</div>
+                            <div class="person-title">工程教育家</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="image-box" style="background-image: url('../images/lsb.png');"></div>
+                        <div class="name-box">
+                            <div class="person-name">宋宝安</div>
+                            <div class="person-title">农业教育家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>贵州教育史研究委员会</p>
+        <p>©2025 贵州教育史网站 | 传承教育精神 · 铭记教育先驱</p>
+    </div>
+</body>
+</html>
